@@ -4,7 +4,6 @@ const bodyParser = require('body-parser');
 
 const db = require('./DB.json');
 const app = express();
-const port = 3000;
 
 app.use(cors());
 app.use(bodyParser.json());
@@ -34,6 +33,6 @@ app.post('/sucursales', (req, res) => {
     res.jsonp({ Cat_Branch: db.sucursales });
 })
 
-app.listen(port, () => {
-    console.log(`Example app listening at http://localhost:${port}`)
+app.listen(process.env.PORT || 3000, () => {
+    console.log(`running!!!`)
 })
