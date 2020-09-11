@@ -50,7 +50,7 @@ const db = require('./DB.json');
 const app = express();
 const port = 3000;
 
-app.use(cors());
+app.use(cors({ credentials: true, origin: true }));
 app.use(bodyParser.json())
 
 app.post('/inventario', (req, res) => {
