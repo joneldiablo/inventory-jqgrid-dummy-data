@@ -1,0 +1,23 @@
+{
+    "name": "inventory-jqgrid-dummy-data",
+    "version": "1.0.0",
+    "description": "data dummy for inventory jqgrid",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/joneldiablo/inventory-jqgrid-dummy-data.git"
+    },
+    "author": "joneldiablo",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/joneldiablo/inventory-jqgrid-dummy-data/issues"
+    },
+    "homepage": "https://github.com/joneldiablo/inventory-jqgrid-dummy-data#readme",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "dependencies": {
+        "express": "^4.17.1",
+        "json-server": "0.9.6"
+    }
+}
