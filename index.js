@@ -5,30 +5,11 @@ const bodyParser = require('body-parser');
 const db = require('./DB.json');
 const app = express();
 const port = 3000;
-const corsOptions = {
-    origin: '*',
-    allowedHeaders: ['Content-Type', 'Authorization', 'Content-Length', 'X-Requested-With', 'Accept'],
-    methods: ['GET', 'PUT', 'POST', 'DELETE', 'OPTIONS'],
-    optionsSuccessStatus: 204
-}
 
-app.use(cors(corsOptions));
+app.use(cors());
 app.use(bodyParser.json());
 
-app.use((req, res, next) => {
-    res.set({
-        "Access-Control-Allow-Origin": "*",
-        "Access-Control-Allow-Methods": "HEAD, OPTIONS, GET, POST, PUT, PATCH, DELETE",
-        "Access-Control-Allow-Headers": "Content-Type, Authorization, X-Requested-With"
-    })
-    next();
-});
-
-app.options("*", cors(), (req, res) => {
-    res.status(200).send("Preflight request allowed");
-});
-
-app.post('/inventario', cors(), (req, res) => {
+app.post('/inventario', (req, res) => {
     console.log(req.body);
     let inv = db.inventario; //;
     if (req.body._search) {
