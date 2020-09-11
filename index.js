@@ -9,11 +9,20 @@ const corsOptions = {
     origin: 'https://joneldiablo.github.io/inventory-jqgrid/',
     allowedHeaders: ['Content-Type', 'Authorization', 'Content-Length', 'X-Requested-With', 'Accept'],
     methods: ['GET', 'PUT', 'POST', 'DELETE', 'OPTIONS'],
-    optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+    optionsSuccessStatus: 200
 }
 
 app.use(cors(corsOptions));
 app.use(bodyParser.json());
+
+app.use((req, res, next) => {
+    res.set({
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": "HEAD, OPTIONS, GET, POST, PUT, PATCH, DELETE",
+        "Access-Control-Allow-Headers": "Content-Type, Authorization, X-Requested-With"
+    })
+    next();
+});
 
 app.post('/inventario', (req, res) => {
     console.log(req.body);
