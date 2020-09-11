@@ -24,11 +24,11 @@ app.use((req, res, next) => {
     next();
 });
 
-app.options("*", (req, res) => {
+app.options("*", cors(), (req, res) => {
     res.status(200).send("Preflight request allowed");
 });
 
-app.post('/inventario', (req, res) => {
+app.post('/inventario', cors(), (req, res) => {
     console.log(req.body);
     let inv = db.inventario; //;
     if (req.body._search) {
