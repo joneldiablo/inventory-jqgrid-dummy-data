@@ -1,12 +1,19 @@
 const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
+
 const db = require('./DB.json');
 const app = express();
 const port = 3000;
+const corsOptions = {
+    origin: '*',
+    allowedHeaders: ['Content-Type', 'Authorization', 'Content-Length', 'X-Requested-With', 'Accept'],
+    methods: ['GET', 'PUT', 'POST', 'DELETE', 'OPTIONS'],
+    optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+}
 
-app.use(cors());
-app.use(bodyParser.json())
+app.use(cors(corsOptions));
+app.use(bodyParser.json());
 
 app.post('/inventario', (req, res) => {
     console.log(req.body);
