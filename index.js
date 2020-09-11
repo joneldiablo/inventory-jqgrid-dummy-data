@@ -6,10 +6,10 @@ const db = require('./DB.json');
 const app = express();
 const port = 3000;
 const corsOptions = {
-    origin: 'https://joneldiablo.github.io/inventory-jqgrid/',
+    origin: '*',
     allowedHeaders: ['Content-Type', 'Authorization', 'Content-Length', 'X-Requested-With', 'Accept'],
     methods: ['GET', 'PUT', 'POST', 'DELETE', 'OPTIONS'],
-    optionsSuccessStatus: 200
+    optionsSuccessStatus: 204
 }
 
 app.use(cors(corsOptions));
