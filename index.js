@@ -24,6 +24,10 @@ app.use((req, res, next) => {
     next();
 });
 
+app.options("*", (req, res) => {
+    res.status(200).send("Preflight request allowed");
+});
+
 app.post('/inventario', (req, res) => {
     console.log(req.body);
     let inv = db.inventario; //;
